@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chat Lens - System Alerts</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3b22e6",
+                        "background-light": "#f4f4f9",
+                        "background-dark": "#0f172a",
+                        retro: {
+                            pink: "#ff91af",
+                            green: "#a7f3d0",
+                            yellow: "#fef08a",
+                            blue: "#bfdbfe",
+                            purple: "#ddd6fe"
+                        }
+                    },
+                    fontFamily: {
+                        display: ["'Space Grotesk'", "sans-serif"],
+                        mono: ["'JetBrains Mono'", "monospace"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0px",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .retro-shadow {
+            box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+        }
+        .dark .retro-shadow {
+            box-shadow: 6px 6px 0px 0px rgba(255, 255, 255, 0.1);
+        }
+        .retro-border {
+            border: 3px solid black;
+        }
+        .dark .retro-border {
+            border: 3px solid white;
+        }
+        .grid-bg {
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .dark .grid-bg {
+            background-image: radial-gradient(#334155 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-mono text-black dark:text-white grid-bg min-h-screen p-8 transition-colors duration-200">
+<header class="max-w-6xl mx-auto mb-12 flex justify-between items-center bg-white dark:bg-slate-900 retro-border p-4 retro-shadow">
+<div class="flex items-center gap-4">
+<span class="material-icons text-primary text-3xl">lens</span>
+<h1 class="font-display font-bold text-2xl tracking-tighter">CHAT_LENS v2.4.0</h1>
+</div>
+<div class="flex gap-4">
+<button class="retro-border bg-retro-yellow dark:bg-slate-700 px-4 py-2 hover:translate-x-0.5 hover:translate-y-0.5 transition-transform" onclick="document.documentElement.classList.toggle('dark')">
+                TOGGLE_THEME
+            </button>
+<div class="flex gap-2">
+<div class="w-4 h-4 rounded-full bg-retro-pink retro-border"></div>
+<div class="w-4 h-4 rounded-full bg-retro-green retro-border"></div>
+<div class="w-4 h-4 rounded-full bg-primary retro-border"></div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+<div class="space-y-8">
+<h2 class="text-xl font-bold uppercase tracking-widest bg-primary text-white inline-block px-3 py-1">State: Error_Handling</h2>
+<div class="retro-border bg-white dark:bg-slate-900 retro-shadow overflow-hidden">
+<div class="bg-primary text-white p-2 border-b-3 border-black dark:border-white flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-icons text-sm">error_outline</span>
+<span class="text-xs font-bold uppercase tracking-tight">System_Message.exe</span>
+</div>
+<div class="flex gap-1">
+<div class="w-4 h-4 bg-white dark:bg-slate-800 border border-black dark:border-white"></div>
+<div class="w-4 h-4 bg-retro-pink border border-black dark:border-white flex items-center justify-center text-[10px] text-black">X</div>
+</div>
+</div>
+<div class="p-8 flex flex-col items-center text-center">
+<div class="bg-retro-pink retro-border p-4 mb-6 rotate-1">
+<span class="material-icons text-5xl">priority_high</span>
+</div>
+<h3 class="font-display text-2xl font-bold mb-2">ERROR: INVALID_FILE_TYPE</h3>
+<p class="text-sm opacity-70 mb-8 max-w-xs">
+                        The uploaded file structure does not match the expected JSON format for Chat Lens analysis. Supported extensions: .json, .csv
+                    </p>
+<div class="flex gap-4 w-full">
+<button class="flex-1 retro-border bg-primary text-white py-3 font-bold hover:brightness-110 active:translate-y-1 transition-all">
+                            TRY_AGAIN
+                        </button>
+<button class="px-6 retro-border bg-white dark:bg-slate-800 py-3 font-bold hover:bg-slate-100 dark:hover:bg-slate-700">
+                            CANCEL
+                        </button>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800 border-t-3 border-black dark:border-white p-2 text-[10px] flex justify-between uppercase opacity-60">
+<span>Code: 0x000422</span>
+<span>Stack: UI_UPLOAD_HANDLER</span>
+</div>
+</div>
+<div class="retro-border bg-retro-pink/20 dark:bg-retro-pink/10 p-4 flex gap-4 items-center">
+<span class="material-icons text-retro-pink">warning</span>
+<span class="text-sm">Low disk space detected for session caching.</span>
+</div>
+</div>
+<div class="space-y-8">
+<h2 class="text-xl font-bold uppercase tracking-widest bg-retro-green text-black inline-block px-3 py-1">State: Success_Feedback</h2>
+<div class="relative">
+<div class="retro-border bg-white dark:bg-slate-900 retro-shadow p-6 blur-[1px] opacity-40 select-none pointer-events-none">
+<div class="w-full h-4 bg-slate-200 dark:bg-slate-800 mb-4"></div>
+<div class="w-3/4 h-4 bg-slate-200 dark:bg-slate-800 mb-4"></div>
+<div class="w-1/2 h-4 bg-slate-200 dark:bg-slate-800"></div>
+</div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-sm">
+<div class="retro-border bg-retro-green dark:bg-[#15803d] p-6 retro-shadow-lg scale-110 -rotate-1">
+<div class="flex items-start gap-4">
+<div class="bg-black text-white p-2">
+<span class="material-icons">check_circle</span>
+</div>
+<div class="flex-1">
+<h3 class="font-bold text-lg mb-1 leading-none uppercase">SUCCESS: UPLOAD_COMPLETE</h3>
+<p class="text-sm opacity-80 leading-snug">
+                                    4,281 chat messages processed successfully. Sentiment analysis is now available in the dashboard.
+                                </p>
+<div class="mt-4 flex gap-3">
+<button class="text-xs font-bold underline uppercase tracking-tighter">VIEW_REPORT</button>
+<button class="text-xs font-bold underline uppercase tracking-tighter">DISMISS</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="retro-border bg-white dark:bg-slate-900 p-6 space-y-4">
+<div class="flex justify-between items-end mb-2">
+<span class="text-xs font-bold">ANALYZING_SENTIMENT...</span>
+<span class="text-xs font-mono">87%</span>
+</div>
+<div class="retro-border h-8 bg-slate-100 dark:bg-slate-800 relative overflow-hidden">
+<div class="h-full bg-primary" style="width: 87%"></div>
+<div class="absolute inset-0 flex">
+<div class="h-full w-full border-r border-black/10 dark:border-white/10"></div>
+<div class="h-full w-full border-r border-black/10 dark:border-white/10"></div>
+<div class="h-full w-full border-r border-black/10 dark:border-white/10"></div>
+<div class="h-full w-full border-r border-black/10 dark:border-white/10"></div>
+<div class="h-full w-full border-r border-black/10 dark:border-white/10"></div>
+</div>
+</div>
+<div class="flex gap-2">
+<span class="text-[10px] animate-pulse">■</span>
+<span class="text-[10px] opacity-60">PARSING_TOKEN_STREAMS...</span>
+</div>
+</div>
+</div>
+</main>
+<div class="fixed right-8 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-0 border-3 border-black dark:border-white retro-shadow bg-white dark:bg-slate-900">
+<button class="p-3 border-b-3 border-black dark:border-white hover:bg-retro-yellow transition-colors bg-retro-yellow">
+<span class="material-icons">home</span>
+</button>
+<button class="p-3 border-b-3 border-black dark:border-white hover:bg-retro-blue transition-colors">
+<span class="material-icons">upload_file</span>
+</button>
+<button class="p-3 border-b-3 border-black dark:border-white hover:bg-retro-green transition-colors">
+<span class="material-icons">analytics</span>
+</button>
+<button class="p-3 border-b-3 border-black dark:border-white hover:bg-retro-pink transition-colors">
+<span class="material-icons">mail</span>
+</button>
+<button class="p-3 hover:bg-retro-purple transition-colors">
+<span class="material-icons">settings</span>
+</button>
+</div>
+<div class="fixed top-12 left-12 opacity-20 pointer-events-none -z-10">
+<div class="w-16 h-16 bg-retro-pink rounded-full retro-border"></div>
+</div>
+<div class="fixed bottom-12 right-12 opacity-20 pointer-events-none -z-10 rotate-12">
+<div class="w-24 h-24 bg-retro-blue retro-border"></div>
+</div>
+<div class="fixed bottom-24 left-24 opacity-10 pointer-events-none -z-10 rotate-45">
+<span class="material-icons text-8xl">sentiment_satisfied_alt</span>
+</div>
+<footer class="max-w-6xl mx-auto mt-20 border-t-3 border-black dark:border-white pt-8 pb-12 flex justify-between items-center text-xs opacity-60 font-bold">
+<div>© 2024 RETRO_CORP // ANALYZE_EVERYTHING</div>
+<div class="flex gap-8">
+<a class="hover:underline" href="#">SYSTEM_LOGS</a>
+<a class="hover:underline" href="#">DOCUMENTATION</a>
+<a class="hover:underline" href="#">SUPPORT_TERM</a>
+</div>
+</footer>
+
+</body></html>

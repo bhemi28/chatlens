@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chat Lens - Analysis Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3b30e0",
+                        "background-light": "#f0f2f5",
+                        "background-dark": "#0f172a",
+                        "retro-window": "#ffffff",
+                        "retro-window-dark": "#1e293b",
+                        "retro-accent": "#f3f4f6",
+                        "retro-pink": "#ff8ab4",
+                        "retro-green": "#22c55e",
+                        "retro-yellow": "#fef08a"
+                    },
+                    fontFamily: {
+                        display: ["Space Grotesk", "sans-serif"],
+                        mono: ["Space Mono", "monospace"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "4px",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .retro-border {
+            border: 2px solid #000;
+            box-shadow: 4px 4px 0px 0px #000;
+        }
+        .retro-border-sm {
+            border: 2px solid #000;
+            box-shadow: 2px 2px 0px 0px #000;
+        }
+        .grid-bg {
+            background-image: radial-gradient(#00000022 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .dark .grid-bg {
+            background-image: radial-gradient(#ffffff11 1px, transparent 1px);
+        }
+        .chat-scroll::-webkit-scrollbar {
+            width: 12px;
+        }
+        .chat-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-left: 2px solid #000;
+        }
+        .chat-scroll::-webkit-scrollbar-thumb {
+            background: #888;
+            border: 2px solid #000;
+        }
+        .dark .chat-scroll::-webkit-scrollbar-track { background: #1e293b; border-left: 2px solid #fff; }
+        .dark .chat-scroll::-webkit-scrollbar-thumb { background: #475569; border: 2px solid #fff; }
+        .retro-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px 0px #000;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-mono text-slate-900 dark:text-slate-100 min-h-screen grid-bg p-4 md:p-8 flex items-center justify-center">
+<div class="fixed left-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-4 z-50">
+<div class="bg-white dark:bg-slate-800 p-2 flex flex-col gap-3 retro-border">
+<button class="w-12 h-12 flex items-center justify-center bg-retro-yellow hover:opacity-80 transition-all border-2 border-black" title="Home">
+<span class="material-symbols-outlined">home</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center bg-white dark:bg-slate-700 hover:bg-slate-100 border-2 border-black" title="Upload">
+<span class="material-symbols-outlined text-black dark:text-white">upload_file</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center bg-primary text-white border-2 border-black" title="Analyze">
+<span class="material-symbols-outlined">analytics</span>
+</button>
+<div class="h-px bg-black my-1"></div>
+<button class="w-12 h-12 flex items-center justify-center bg-white dark:bg-slate-700 hover:bg-slate-100 border-2 border-black" title="Settings">
+<span class="material-symbols-outlined text-black dark:text-white">settings</span>
+</button>
+</div>
+</div>
+<main class="w-full max-w-6xl h-[85vh] bg-white dark:bg-slate-900 retro-border flex flex-col overflow-hidden relative">
+<div class="h-10 bg-[#c0c0c0] dark:bg-slate-800 border-b-2 border-black flex items-center justify-between px-3 shrink-0">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-black dark:text-white">terminal</span>
+<span class="text-xs font-bold uppercase tracking-tight text-black dark:text-white">Chat_Lens_v2.0_Analysis.exe</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 border-2 border-black bg-white dark:bg-slate-700 flex items-center justify-center text-xs font-bold text-black dark:text-white hover:bg-slate-200">_</button>
+<button class="w-6 h-6 border-2 border-black bg-white dark:bg-slate-700 flex items-center justify-center text-xs font-bold text-black dark:text-white hover:bg-slate-200">□</button>
+<button class="w-6 h-6 border-2 border-black bg-retro-pink flex items-center justify-center text-xs font-bold text-black hover:opacity-80">X</button>
+</div>
+</div>
+<div class="p-3 bg-retro-accent dark:bg-slate-800 border-b-2 border-black flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="bg-white dark:bg-slate-700 px-3 py-1 border-2 border-black text-xs font-bold text-black dark:text-white">
+                    FILE: WHATSAPP_EXPORT_2024.TXT
+                </div>
+<div class="flex items-center gap-2 text-xs text-black dark:text-white">
+<span class="w-2 h-2 rounded-full bg-retro-green animate-pulse"></span>
+                    READY_TO_PROCESS
+                </div>
+</div>
+<div class="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-widest">
+                Kernel: v4.2-LENS // Memory: 256MB OK
+            </div>
+</div>
+<div class="flex-1 flex overflow-hidden">
+<section class="w-1/2 border-r-2 border-black flex flex-col bg-white dark:bg-slate-900">
+<div class="p-3 bg-white dark:bg-slate-800 border-b-2 border-black flex items-center justify-between">
+<h2 class="text-xs font-black uppercase flex items-center gap-2 text-black dark:text-white">
+<span class="material-symbols-outlined text-sm">chat</span>
+                        Uploaded_Chat_Panel
+                    </h2>
+<span class="text-[10px] bg-black text-white px-2 py-0.5">142 MESSAGES</span>
+</div>
+<div class="flex-1 overflow-y-auto chat-scroll p-4 space-y-4 font-mono text-[13px]">
+<div class="flex gap-2">
+<span class="text-slate-400 shrink-0">[10:04]</span>
+<div class="flex flex-col">
+<span class="font-bold text-primary dark:text-indigo-400">User_A:</span>
+<p class="text-black dark:text-slate-200 bg-slate-100 dark:bg-slate-800 p-2 border border-dashed border-slate-300 dark:border-slate-600">Hey, did you see the new documentation for the retro-styles? It looks pretty cool.</p>
+</div>
+</div>
+<div class="flex gap-2">
+<span class="text-slate-400 shrink-0">[10:05]</span>
+<div class="flex flex-col">
+<span class="font-bold text-retro-pink">User_B:</span>
+<p class="text-black dark:text-slate-200 bg-slate-100 dark:bg-slate-800 p-2 border border-dashed border-slate-300 dark:border-slate-600">Yeah! I love the neon colors mixed with the brutalist borders. It really gives off a 90s OS vibe.</p>
+</div>
+</div>
+<div class="flex gap-2">
+<span class="text-slate-400 shrink-0">[10:07]</span>
+<div class="flex flex-col">
+<span class="font-bold text-primary dark:text-indigo-400">User_A:</span>
+<p class="text-black dark:text-slate-200 bg-slate-100 dark:bg-slate-800 p-2 border border-dashed border-slate-300 dark:border-slate-600">Agreed. We should implement the analysis engine soon. I'm curious what the sentiment scores will look like for this chat.</p>
+</div>
+</div>
+<div class="flex gap-2">
+<span class="text-slate-400 shrink-0">[10:12]</span>
+<div class="flex flex-col">
+<span class="font-bold text-retro-pink">User_B:</span>
+<p class="text-black dark:text-slate-200 bg-slate-100 dark:bg-slate-800 p-2 border border-dashed border-slate-300 dark:border-slate-600">Definitely. The HTMX + Go stack is feeling very snappy today.</p>
+</div>
+</div>
+<div class="py-4 border-t-2 border-dotted border-slate-300 dark:border-slate-700 text-center text-[10px] text-slate-400 uppercase italic">
+                        --- 138 more messages truncated ---
+                    </div>
+</div>
+</section>
+<section class="w-1/2 flex flex-col bg-retro-accent dark:bg-slate-800 p-6 overflow-y-auto chat-scroll">
+<div class="flex flex-col h-full gap-6">
+<div class="bg-white dark:bg-slate-900 retro-border-sm p-4 flex flex-col gap-3">
+<div class="flex items-center gap-2 border-b border-black dark:border-white pb-2">
+<span class="material-symbols-outlined text-sm">bar_chart</span>
+<h3 class="text-xs font-black uppercase text-black dark:text-white">Sentiment_Summary</h3>
+</div>
+<div class="flex items-center justify-center py-8 border border-dashed border-slate-400 dark:border-slate-600">
+<div class="text-center opacity-40">
+<span class="material-symbols-outlined text-4xl block mb-2">query_stats</span>
+<p class="text-[10px] uppercase font-bold text-black dark:text-white">Data_Not_Computed</p>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 retro-border-sm p-4 flex flex-col gap-3">
+<div class="flex items-center gap-2 border-b border-black dark:border-white pb-2">
+<span class="material-symbols-outlined text-sm">mood</span>
+<h3 class="text-xs font-black uppercase text-black dark:text-white">Vibe_Overview</h3>
+</div>
+<div class="grid grid-cols-2 gap-3 py-2">
+<div class="h-10 border border-dashed border-slate-400 dark:border-slate-600 flex items-center justify-center">
+<span class="text-[10px] uppercase font-bold opacity-30 text-black dark:text-white">??</span>
+</div>
+<div class="h-10 border border-dashed border-slate-400 dark:border-slate-600 flex items-center justify-center">
+<span class="text-[10px] uppercase font-bold opacity-30 text-black dark:text-white">??</span>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 retro-border-sm p-4 flex flex-col gap-3">
+<div class="flex items-center gap-2 border-b border-black dark:border-white pb-2">
+<span class="material-symbols-outlined text-sm">tag</span>
+<h3 class="text-xs font-black uppercase text-black dark:text-white">Top_Keywords</h3>
+</div>
+<div class="flex flex-wrap gap-2 py-4">
+<div class="px-2 py-1 bg-slate-100 dark:bg-slate-800 border border-black dark:border-white text-[10px] text-slate-400">PENDING_LINK</div>
+<div class="px-2 py-1 bg-slate-100 dark:bg-slate-800 border border-black dark:border-white text-[10px] text-slate-400">PENDING_LINK</div>
+<div class="px-2 py-1 bg-slate-100 dark:bg-slate-800 border border-black dark:border-white text-[10px] text-slate-400">PENDING_LINK</div>
+</div>
+</div>
+<div class="mt-auto pt-6 flex flex-col items-center">
+<button class="w-full py-4 bg-slate-300 dark:bg-slate-700 border-2 border-black text-slate-500 dark:text-slate-500 font-black text-lg tracking-widest cursor-not-allowed flex items-center justify-center gap-3" disabled="">
+<span class="material-symbols-outlined">lock</span>
+                            RUN_ANALYSIS
+                        </button>
+<p class="mt-2 text-[10px] font-bold text-retro-pink dark:text-retro-pink uppercase text-center animate-pulse">
+                            [!] Backend integration coming soon
+                        </p>
+</div>
+</div>
+</section>
+</div>
+<footer class="h-8 bg-white dark:bg-slate-800 border-t-2 border-black flex items-center justify-between px-4 shrink-0 overflow-hidden">
+<div class="flex gap-4 items-center">
+<span class="text-[10px] font-bold text-black dark:text-white">CPU: 12%</span>
+<div class="w-32 h-2 bg-slate-200 dark:bg-slate-700 border border-black relative">
+<div class="absolute inset-y-0 left-0 bg-retro-green w-[12%]"></div>
+</div>
+</div>
+<div class="flex gap-4 items-center">
+<span class="text-[10px] font-bold text-black dark:text-white uppercase tracking-tighter">System: Stable</span>
+<span class="text-[10px] font-bold text-black dark:text-white uppercase tracking-tighter">Connected: WebSocket_Main</span>
+</div>
+</footer>
+<div class="absolute -top-6 -right-6 w-12 h-12 bg-retro-yellow border-2 border-black -rotate-12 hidden md:flex items-center justify-center">
+<span class="material-symbols-outlined">star</span>
+</div>
+<div class="absolute -bottom-4 -left-4 w-10 h-10 bg-retro-pink border-2 border-black rotate-45 hidden md:flex items-center justify-center">
+<span class="material-symbols-outlined text-white">favorite</span>
+</div>
+</main>
+<button class="fixed bottom-6 right-6 lg:hidden w-14 h-14 bg-primary text-white border-2 border-black retro-border flex items-center justify-center z-50">
+<span class="material-symbols-outlined">menu</span>
+</button>
+
+</body></html>

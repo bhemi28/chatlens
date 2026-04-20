@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
+}
+
+body {
+    background-color: theme("colors.background-light");
+}
+
+.dark body {
+    background-color: theme("colors.background-dark");
+}
+
+.grid-pattern {
+    background-image: radial-gradient(circle, #cbd5e1 2px, transparent 1px);
+    background-size: 30px 30px;
+}
+.dark .grid-pattern {
+    background-image: radial-gradient(circle, #334155 2px, transparent 1px);
+}
+
+.window-shadow {
+    box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.9);
+}
+
+.dark .window-shadow {
+    box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+.neobrutalism {
+    border: 3px solid black;
+    box-shadow: 4px 4px 0px 0px black;
+    transition: all 0.1s ease;
+}
+
+.neobrutalism:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px 0px black;
+}
+
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+.brutalist-border {
+    border: 3px solid black;
+    box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.dark .brutalist-border {
+    border: 3px solid #6366f1;
+    box-shadow: 6px 6px 0px 0px #4f46e5;
+}
+
+.window-header {
+    border-bottom: 3px solid black;
+}
+
+.dark .window-header {
+    border-bottom: 3px solid #6366f1;
+}
+
+.retro-shadow {
+    box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.dark .retro-shadow {
+    box-shadow: 6px 6px 0px 0px rgba(255, 255, 255, 0.1);
+}
+
+.retro-shadow-lg {
+    box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.dark .retro-shadow-lg {
+    box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.5);
+}

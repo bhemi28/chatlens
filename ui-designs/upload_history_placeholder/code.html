@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chat Lens - History</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=VT323&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3b30d1",
+                        "background-light": "#f0f2f5",
+                        "background-dark": "#1a1b26",
+                        "retro-blue": "#c4c9ff",
+                        "retro-pink": "#ffb6d9",
+                        "retro-yellow": "#fff9c4",
+                        "retro-green": "#c8e6c9",
+                    },
+                    fontFamily: {
+                        display: ["'Space Mono'", "monospace"],
+                        retro: ["'VT323'", "monospace"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0px",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .retro-border {
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0px 0px #000;
+        }
+        .retro-window-shadow {
+            box-shadow: 8px 8px 0px 0px rgba(0,0,0,0.15);
+        }
+        .grid-bg {
+            background-image: radial-gradient(#00000022 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .dark .grid-bg {
+            background-image: radial-gradient(#ffffff11 1px, transparent 1px);
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 0, 0, 0.1);
+            position: absolute;
+            animation: scanline 6s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes scanline {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen grid-bg overflow-hidden flex items-center justify-center p-4">
+<nav class="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col gap-2 p-2 bg-white dark:bg-gray-800 retro-border z-50">
+<button class="w-10 h-10 flex items-center justify-center bg-retro-yellow hover:bg-yellow-200 border-2 border-black">
+<span class="material-icons text-black">home</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center bg-white dark:bg-gray-700 hover:bg-gray-100 border-2 border-black">
+<span class="material-icons text-black dark:text-white">cloud_upload</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center bg-primary text-white border-2 border-black">
+<span class="material-icons">history</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center bg-white dark:bg-gray-700 hover:bg-gray-100 border-2 border-black">
+<span class="material-icons text-black dark:text-white">settings</span>
+</button>
+<div class="h-px bg-black my-1"></div>
+<button class="w-10 h-10 flex items-center justify-center bg-retro-pink border-2 border-black">
+<span class="material-icons text-black">help_outline</span>
+</button>
+</nav>
+<main class="w-full max-w-4xl retro-window-shadow relative">
+<div class="scanline"></div>
+<div class="bg-white dark:bg-gray-900 retro-border overflow-hidden flex flex-col">
+<div class="bg-primary p-2 flex items-center justify-between border-b-3 border-black">
+<div class="flex items-center gap-2">
+<span class="material-icons text-white text-sm">history_edu</span>
+<span class="text-white text-xs font-bold tracking-widest uppercase">History_Archive.exe</span>
+</div>
+<div class="flex gap-1">
+<div class="w-4 h-4 border-2 border-black bg-white"></div>
+<div class="w-4 h-4 border-2 border-black bg-white"></div>
+<div class="w-4 h-4 border-2 border-black bg-retro-pink"></div>
+</div>
+</div>
+<div class="border-b-2 border-black bg-gray-100 dark:bg-gray-800 p-3 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="flex items-center bg-white dark:bg-gray-700 border-2 border-black px-3 py-1 text-xs">
+<span class="text-gray-400 dark:text-gray-500 mr-2">C:\SYSTEM\ARCHIVE\</span>
+<span class="font-bold">UPLOADS</span>
+</div>
+</div>
+<div class="text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-tighter">
+                    Status: <span class="text-green-600 dark:text-green-400">Connected</span>
+</div>
+</div>
+<div class="flex flex-col md:flex-row min-h-[500px]">
+<div class="w-full md:w-64 border-r-2 border-black p-6 bg-gray-50 dark:bg-gray-800 flex flex-col gap-6">
+<div>
+<h3 class="text-xs font-bold bg-retro-blue text-black inline-block px-2 py-1 border-2 border-black mb-4">STORAGE_INFO</h3>
+<div class="space-y-2">
+<div class="h-4 bg-gray-200 dark:bg-gray-700 border-2 border-black overflow-hidden">
+<div class="h-full bg-primary w-1/3"></div>
+</div>
+<p class="text-[10px] text-gray-600 dark:text-gray-400 font-bold uppercase">3.4MB / 10MB Used</p>
+</div>
+</div>
+<div class="flex-grow">
+<h3 class="text-xs font-bold bg-retro-pink text-black inline-block px-2 py-1 border-2 border-black mb-4">FILTERS</h3>
+<ul class="text-xs space-y-2">
+<li class="flex items-center gap-2 font-bold cursor-pointer hover:underline">
+<span class="material-icons text-sm">folder</span> ALL_FILES
+                            </li>
+<li class="flex items-center gap-2 text-gray-500 cursor-not-allowed">
+<span class="material-icons text-sm">schedule</span> RECENT
+                            </li>
+<li class="flex items-center gap-2 text-gray-500 cursor-not-allowed">
+<span class="material-icons text-sm">star_border</span> STARRED
+                            </li>
+</ul>
+</div>
+<div class="p-3 border-2 border-dashed border-gray-400 dark:border-gray-600">
+<p class="text-[10px] text-center leading-tight text-gray-500">SYSTEM_UPTIME:<br/>04:22:15:99</p>
+</div>
+</div>
+<div class="flex-grow bg-white dark:bg-gray-900 relative">
+<div class="grid grid-cols-12 border-b-2 border-black bg-gray-100 dark:bg-gray-800 text-[10px] font-bold uppercase p-3">
+<div class="col-span-6 border-r-2 border-black px-2">File_Name</div>
+<div class="col-span-3 border-r-2 border-black px-2 text-center">Date_Created</div>
+<div class="col-span-3 px-2 text-center">Status</div>
+</div>
+<div class="divide-y-2 divide-gray-100 dark:divide-gray-800 opacity-40">
+<div class="grid grid-cols-12 text-[11px] p-3 font-mono">
+<div class="col-span-6 flex items-center gap-2">
+<span class="material-icons text-sm">insert_drive_file</span>
+<span>whatsapp_chat_export_01.txt</span>
+</div>
+<div class="col-span-3 text-center">2023-OCT-12</div>
+<div class="col-span-3 flex justify-center">
+<span class="px-2 py-0.5 border border-black bg-retro-yellow text-black text-[9px] font-bold uppercase">Pending</span>
+</div>
+</div>
+<div class="grid grid-cols-12 text-[11px] p-3 font-mono">
+<div class="col-span-6 flex items-center gap-2">
+<span class="material-icons text-sm">insert_drive_file</span>
+<span>telegram_history_backup.json</span>
+</div>
+<div class="col-span-3 text-center">2023-OCT-08</div>
+<div class="col-span-3 flex justify-center">
+<span class="px-2 py-0.5 border border-black bg-retro-yellow text-black text-[9px] font-bold uppercase">Pending</span>
+</div>
+</div>
+<div class="grid grid-cols-12 text-[11px] p-3 font-mono">
+<div class="col-span-6 flex items-center gap-2">
+<span class="material-icons text-sm">insert_drive_file</span>
+<span>discord_dms_archive_v2.txt</span>
+</div>
+<div class="col-span-3 text-center">2023-SEP-29</div>
+<div class="col-span-3 flex justify-center">
+<span class="px-2 py-0.5 border border-black bg-retro-yellow text-black text-[9px] font-bold uppercase">Pending</span>
+</div>
+</div>
+</div>
+<div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-white/60 dark:bg-gray-900/60 backdrop-blur-[1px] pointer-events-none">
+<div class="bg-white dark:bg-gray-800 retro-border p-8 max-w-sm pointer-events-auto">
+<div class="mb-4">
+<span class="material-icons text-primary text-5xl">construction</span>
+</div>
+<h2 class="font-retro text-3xl mb-4 leading-none">SYSTEM UPGRADE IN PROGRESS</h2>
+<p class="text-xs leading-relaxed mb-6 font-bold uppercase tracking-tight">
+                                History feature will be available in future updates. 
+                                We are currently calibrating the sentiment analysis engine.
+                            </p>
+<button class="bg-primary text-white border-2 border-black px-6 py-2 text-xs font-bold hover:translate-x-1 hover:translate-y-1 transition-transform">
+                                ACKNOWLEDGE
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-gray-100 dark:bg-gray-800 border-t-2 border-black p-1 px-4 flex justify-between items-center text-[9px] font-bold uppercase">
+<div class="flex gap-4">
+<span>MEM: 640K OK</span>
+<span>CPU: 33MHZ</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span>System_Online</span>
+</div>
+</div>
+</div>
+</main>
+<div class="fixed top-12 left-12 opacity-20 hidden lg:block">
+<span class="material-icons text-retro-pink text-6xl">favorite</span>
+</div>
+<div class="fixed bottom-12 left-12 hidden lg:block">
+<div class="w-16 h-16 bg-retro-blue border-4 border-black rotate-12 flex items-center justify-center">
+<span class="material-icons text-black">sentiment_neutral</span>
+</div>
+</div>
+<div class="fixed top-12 right-64 opacity-20 hidden lg:block">
+<div class="w-12 h-12 bg-retro-green border-4 border-black rotate-45"></div>
+</div>
+
+</body></html>

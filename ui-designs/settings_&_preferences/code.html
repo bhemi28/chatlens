@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chat Lens - Settings &amp; Preferences</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3b2fd9",
+                        "background-light": "#f0f2f5",
+                        "background-dark": "#0f172a",
+                        retro: {
+                            pink: "#ff90e8",
+                            yellow: "#ffde59",
+                            green: "#70e000",
+                            blue: "#00b4d8",
+                            purple: "#9d4edd",
+                        }
+                    },
+                    fontFamily: {
+                        display: ["Space Grotesk", "sans-serif"],
+                        mono: ["Space Mono", "monospace"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0px",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .neo-brutalism {
+            box-shadow: 4px 4px 0px 0px #000;
+        }
+        .neo-brutalism-sm {
+            box-shadow: 2px 2px 0px 0px #000;
+        }
+        .neo-brutalism-hover:hover {
+            box-shadow: 2px 2px 0px 0px #000;
+            transform: translate(2px, 2px);
+        }
+        .grid-bg {
+            background-image: radial-gradient(#00000022 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+        .dark .grid-bg {
+            background-image: radial-gradient(#ffffff11 1px, transparent 0);
+        }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .retro-window {
+            border: 3px solid #000;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen grid-bg transition-colors duration-200 p-4 md:p-8 flex items-center justify-center">
+<div class="fixed top-10 left-10 text-retro-pink opacity-50 hidden lg:block">
+<span class="material-icons text-6xl">favorite</span>
+</div>
+<div class="fixed bottom-10 right-10 text-retro-purple opacity-50 hidden lg:block">
+<span class="material-icons text-8xl">cloud</span>
+</div>
+<aside class="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-10">
+<div class="bg-white dark:bg-slate-800 border-2 border-black p-2 neo-brutalism flex flex-col gap-3">
+<button class="w-12 h-12 flex items-center justify-center bg-retro-yellow border-2 border-black neo-brutalism-sm hover:translate-y-0.5 transition-all">
+<span class="material-icons text-black">home</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center bg-white dark:bg-slate-700 border-2 border-black neo-brutalism-sm hover:translate-y-0.5 transition-all">
+<span class="material-icons text-black dark:text-white">analytics</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center bg-white dark:bg-slate-700 border-2 border-black neo-brutalism-sm hover:translate-y-0.5 transition-all">
+<span class="material-icons text-black dark:text-white">folder</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center bg-white dark:bg-slate-700 border-2 border-black neo-brutalism-sm hover:translate-y-0.5 transition-all">
+<span class="material-icons text-black dark:text-white">mail</span>
+</button>
+<div class="h-[2px] bg-black w-full"></div>
+<button class="w-12 h-12 flex items-center justify-center bg-retro-green border-2 border-black neo-brutalism-sm">
+<span class="material-icons text-black">settings</span>
+</button>
+</div>
+<div class="bg-retro-yellow border-2 border-black w-12 h-12 flex items-center justify-center rounded-full neo-brutalism-sm">
+<span class="font-bold text-2xl">:-|</span>
+</div>
+</aside>
+<main class="w-full max-w-4xl bg-white dark:bg-slate-900 retro-window neo-brutalism relative">
+<header class="bg-indigo-200 dark:bg-indigo-900 border-b-2 border-black p-3 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-icons text-sm">settings</span>
+<span class="font-mono font-bold text-sm tracking-tight">SYSTEM_PREFERENCES.EXE</span>
+</div>
+<div class="flex gap-2">
+<div class="w-6 h-6 border-2 border-black bg-white dark:bg-slate-700 flex items-center justify-center cursor-pointer">
+<div class="w-3 h-0.5 bg-black dark:bg-white"></div>
+</div>
+<div class="w-6 h-6 border-2 border-black bg-white dark:bg-slate-700 flex items-center justify-center cursor-pointer">
+<div class="w-3 h-3 border-2 border-black dark:border-white"></div>
+</div>
+<div class="w-6 h-6 border-2 border-black bg-retro-pink flex items-center justify-center cursor-pointer hover:bg-red-500 transition-colors">
+<span class="material-icons text-xs font-bold">close</span>
+</div>
+</div>
+</header>
+<div class="p-6 md:p-10">
+<div class="flex flex-col md:flex-row gap-8 items-start mb-10">
+<div class="relative">
+<div class="w-32 h-32 md:w-40 md:h-40 bg-slate-200 dark:bg-slate-700 border-4 border-black rounded-full overflow-hidden relative neo-brutalism">
+<img alt="User Profile" class="w-full h-full object-cover grayscale contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7oyvoPfMdnLrboo-vbR4I_kV93R9IGzOuT9IJguj6fhjGeMpMu_TIsbMlSGH378ofAUrlLydDBWxRsaYMziy7GwqT_LjC7Fcsp87nzuZq3SDSQTDdow5tqgU6M1Yam-aStLM7c-m_auI-2M0Kcxlr3_CV3RuspJEDk5nCL_-pqWnGFMg-ZDBy7zwbjvaEdAMUXy3ToqbqQWFzTlu61mPwQBo_B5K0wYVX4tXmFNDliFFwA8DIivThxZCbdDPC232qzkwtRtsIEA4"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-retro-pink border-2 border-black p-2 neo-brutalism-sm">
+<span class="material-icons text-black">favorite</span>
+</div>
+</div>
+<div class="flex-1 w-full">
+<div class="relative bg-white dark:bg-slate-800 border-2 border-black p-6 neo-brutalism">
+<div class="absolute -left-3 top-8 w-6 h-6 bg-white dark:bg-slate-800 border-l-2 border-b-2 border-black rotate-45 hidden md:block"></div>
+<h1 class="text-3xl md:text-4xl font-mono font-bold uppercase mb-4 text-black dark:text-white">Settings &amp; Config</h1>
+<p class="font-mono text-sm dark:text-slate-300 leading-relaxed">
+                            Configure your Chat Lens environment. Customize <span class="bg-retro-yellow px-1 border-b-2 border-black text-black">UI/UX preferences</span> and system behavior.
+                        </p>
+</div>
+</div>
+</div>
+<div class="space-y-8">
+<section class="border-2 border-black p-6 relative">
+<div class="absolute -top-4 left-4 bg-white dark:bg-slate-900 px-2 font-mono font-bold text-sm border-2 border-black">
+                        [ USER_PROFILE ]
+                    </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+<div class="space-y-2">
+<label class="font-mono text-xs font-bold uppercase block dark:text-slate-400">Display Name</label>
+<input class="w-full bg-slate-50 dark:bg-slate-800 border-2 border-black p-2 font-mono focus:ring-0 focus:border-primary" placeholder="GUEST_USER_01" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-mono text-xs font-bold uppercase block dark:text-slate-400">System ID</label>
+<input class="w-full bg-slate-200 dark:bg-slate-700 border-2 border-black p-2 font-mono opacity-60" readonly="" type="text" value="CL-9823-X"/>
+</div>
+<div class="space-y-2 md:col-span-2">
+<label class="font-mono text-xs font-bold uppercase block dark:text-slate-400">Biography</label>
+<textarea class="w-full bg-slate-50 dark:bg-slate-800 border-2 border-black p-2 font-mono focus:ring-0 focus:border-primary" placeholder="Initializing digital persona..." rows="3"></textarea>
+</div>
+</div>
+</section>
+<section class="border-2 border-black p-6 relative">
+<div class="absolute -top-4 left-4 bg-white dark:bg-slate-900 px-2 font-mono font-bold text-sm border-2 border-black">
+                        [ APP_PREFERENCES ]
+                    </div>
+<div class="space-y-6 mt-4">
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-mono font-bold text-sm dark:text-white">DARK_MODE_PROTOCOL</h4>
+<p class="text-xs font-mono text-slate-500">Enable high-contrast night theme</p>
+</div>
+<button class="w-14 h-8 border-2 border-black relative bg-slate-200 dark:bg-primary transition-colors" onclick="document.documentElement.classList.toggle('dark')">
+<div class="absolute top-1 left-1 dark:left-7 w-5 h-5 bg-white border-2 border-black transition-all"></div>
+</button>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-mono font-bold text-sm dark:text-white">SENTIMENT_NOTIFICATIONS</h4>
+<p class="text-xs font-mono text-slate-500">Alert on drastic mood shifts</p>
+</div>
+<button class="w-14 h-8 border-2 border-black relative bg-retro-green transition-colors">
+<div class="absolute top-1 right-1 w-5 h-5 bg-white border-2 border-black"></div>
+</button>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-mono font-bold text-sm dark:text-white">LEGACY_UI_ELEMENTS</h4>
+<p class="text-xs font-mono text-slate-500">Show scanlines and CRT noise</p>
+</div>
+<button class="w-14 h-8 border-2 border-black relative bg-slate-200 dark:bg-slate-700 transition-colors">
+<div class="absolute top-1 left-1 w-5 h-5 bg-white border-2 border-black"></div>
+</button>
+</div>
+</div>
+</section>
+</div>
+<div class="mt-10 flex flex-col md:flex-row gap-6 items-center justify-between">
+<div class="bg-retro-yellow border-2 border-black p-4 rotate-1 neo-brutalism max-w-xs text-sm font-mono relative">
+<span class="material-icons absolute -top-4 -left-4 text-3xl text-retro-pink">push_pin</span>
+<strong>NOTICE:</strong> Settings functionality is currently under development. Parameters may not persist.
+                </div>
+<div class="flex gap-4 w-full md:w-auto">
+<button class="flex-1 md:flex-none border-2 border-black px-6 py-3 font-mono font-bold uppercase hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                        RESET_DEFAULTS
+                    </button>
+<button class="flex-1 md:flex-none bg-primary text-white border-2 border-black px-8 py-3 font-mono font-bold uppercase neo-brutalism-hover transition-all flex items-center justify-center gap-2">
+<span class="material-icons text-sm">save</span>
+                        SAVE_CHANGES
+                    </button>
+</div>
+</div>
+</div>
+<footer class="bg-indigo-100 dark:bg-indigo-900/50 border-t-2 border-black p-2 flex justify-between items-center px-4">
+<div class="flex gap-6 font-mono text-[10px] text-slate-600 dark:text-slate-400">
+<span>MEM: 640K OK</span>
+<span>CPU: 33MHZ</span>
+<span class="hidden md:inline">SYSTEM: ONLINE</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-retro-green"></div>
+<span class="font-mono text-[10px] text-slate-600 dark:text-slate-400 uppercase">Connected</span>
+</div>
+</footer>
+</main>
+<div class="fixed top-20 right-20 w-16 h-16 border-2 border-black bg-retro-blue rotate-12 neo-brutalism hidden md:block"></div>
+<div class="fixed bottom-20 left-20 w-12 h-12 border-2 border-black bg-retro-green -rotate-12 neo-brutalism hidden md:block"></div>
+
+</body></html>
